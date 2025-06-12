@@ -34,22 +34,79 @@
             border-color: #1e40af;
         }
     </style>
+    <x-navbar brand="Mi Aplicación" brandUrl="/">
+    <x-slot name="left">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/about">Acerca de</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/contact">Contacto</a>
+        </li>
+    </x-slot>
+    
+    <x-slot name="right">
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Iniciar sesión</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/register">Registrarse</a>
+        </li>
+    </x-slot>
+</x-navbar>
+
+<!-- Resto del contenido de tu vista -->
 </head>
 <body>
     <div class="container my-5">
-        <h2>Create Item</h2>
-        <form action="#" method="POST">
+
+ 
+        <x-button type="danger">Peligro</x-button>
+        <br>
+
+        <br>
+                        <x-card title="Tarjeta con Footer">
+                    Contenido principal de la tarjeta.
+                    
+                    <x-slot name="footer">
+                        <button class="btn btn-primary">Aceptar</button>
+                        <button class="btn btn-secondary">Cancelar</button>
+                    </x-slot>
+                </x-card>
+                <br>
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#largeModal">
+            Abrir Modal Grande
+        </button>
+                
+                
+ <x-modal modalId="largeModal" title="Modal Grande" size="lg">
+            <h4>Este es un modal de tamaño grande</h4>
+            <p>Perfecto para contenido más extenso o formularios complejos.</p>
+            
             <div class="mb-3">
-                <label for="createName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="createName" name="name" placeholder="Enter item name">
+                <label for="exampleInput" class="form-label">Ejemplo de input</label>
+                <input type="text" class="form-control" id="exampleInput">
             </div>
+            
             <div class="mb-3">
-                <label for="createDescription" class="form-label">Description</label>
-                <textarea class="form-control" id="createDescription" name="description" rows="4" placeholder="Enter item description"></textarea>
+                <label for="exampleTextarea" class="form-label">Ejemplo de textarea</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Create</button>
-        </form>
+            
+            <x-slot name="footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Enviar</button>
+            </x-slot>
+        
+        </x-modal>
+                
     </div>
+    <br>
+            
+      
+       
     <!-- Bootstrap JS desde CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
