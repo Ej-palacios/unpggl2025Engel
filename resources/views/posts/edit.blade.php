@@ -1,56 +1,66 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Item</title>
-    <!-- Google Fonts: Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS desde CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa; /* Light gray background */
-        }
-        .container {
-            background-color: #ffffff; /* White container background */
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #1e3a8a; /* Dark blue for headings */
-        }
-        label {
-            color: #4b5563; /* Darker gray for text */
-        }
-        .btn-primary {
-            background-color: #1e3a8a; /* Dark blue for buttons */
-            border-color: #1e3a8a;
-        }
-        .btn-primary:hover {
-            background-color: #1e40af; /* Slightly lighter blue on hover */
-            border-color: #1e40af;
-        }
-    </style>
-</head>
-<body>
-    <div class="container my-5">
-        <h2>Edit Item</h2>
-        <form action="#" method="POST">
-            <div class="mb-3">
-                <label for="editName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="editName" name="name" value="Sample Item" placeholder="Enter item name">
+@extends('layouts.app')
+
+@section('titulo', 'Editar Post')
+
+@section('content')
+<div class="min-vh-100 bg-dark">
+    <!-- Hero Section -->
+    <div class="hero-gradient py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}" class="text-white-50">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/posts') }}" class="text-white-50">Posts</a></li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">Editar</li>
+                        </ol>
+                    </nav>
+                    <h1 class="display-5 fw-bold text-white mb-3">Editar Post</h1>
+                    <p class="lead text-white-50">Actualiza la información de tu publicación</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="d-flex gap-2 justify-content-md-end">
+                        <a href="{{ url('/posts') }}" class="btn btn-outline-light rounded-pill px-4">
+                            <i class="bi bi-x me-2"></i> Cancelar
+                        </a>
+                        <a href="{{ url('/posts') }}" class="btn btn-primary rounded-pill px-4">
+                            <i class="bi bi-check2 me-2"></i> Guardar
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="editDescription" class="form-label">Description</label>
-                <textarea class="form-control" id="editDescription" name="description" rows="4">Sample description for editing.</textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
-        </form>
+        </div>
     </div>
-    <!-- Bootstrap JS desde CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+
+    <!-- Content -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="glass-card p-4 p-lg-5 rounded-4">
+                    <div class="d-flex align-items-center mb-5">
+                        <div class="avatar-lg bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-4">
+                            <i class="bi bi-pencil"></i>
+                        </div>
+                        <h2 class="text-white mb-0">Editar Contenido</h2>
+                    </div>
+                    
+                    <div class="placeholder-content">
+                        <div class="placeholder-item bg-gray-800 rounded-4 mb-4" style="height: 50px"></div>
+                        <div class="placeholder-item bg-gray-800 rounded-4 mb-4" style="height: 300px"></div>
+                        
+                        <div class="d-flex justify-content-between mt-5">
+                            <a href="#" class="btn btn-outline-danger rounded-pill px-4">
+                                <i class="bi bi-trash me-2"></i> Eliminar
+                            </a>
+                            <a href="{{ url('/posts') }}" class="btn btn-primary rounded-pill px-4">
+                                <i class="bi bi-check2 me-2"></i> Guardar Cambios
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

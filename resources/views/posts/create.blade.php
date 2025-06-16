@@ -1,113 +1,82 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Item</title>
-    <!-- Google Fonts: Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS desde CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa; /* Light gray background */
-        }
-        .container {
-            background-color: #ffffff; /* White container background */
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #1e3a8a; /* Dark blue for headings */
-        }
-        label {
-            color: #4b5563; /* Darker gray for text */
-        }
-        .btn-primary {
-            background-color: #1e3a8a; /* Dark blue for buttons */
-            border-color: #1e3a8a;
-        }
-        .btn-primary:hover {
-            background-color: #1e40af; /* Slightly lighter blue on hover */
-            border-color: #1e40af;
-        }
-    </style>
-    <x-navbar brand="Mi Aplicación" brandUrl="/">
-    <x-slot name="left">
-        <li class="nav-item">
-            <a class="nav-link active" href="/">Inicio</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/about">Acerca de</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/contact">Contacto</a>
-        </li>
-    </x-slot>
-    
-    <x-slot name="right">
-        <li class="nav-item">
-            <a class="nav-link" href="/login">Iniciar sesión</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/register">Registrarse</a>
-        </li>
-    </x-slot>
-</x-navbar>
+@extends('layouts.app')
 
-<!-- Resto del contenido de tu vista -->
-</head>
-<body>
-    <div class="container my-5">
+@section('titulo', 'Crear Nuevo Post')
 
- 
-        <x-button type="danger">Peligro</x-button>
-        <br>
-
-        <br>
-                        <x-card title="Tarjeta con Footer">
-                    Contenido principal de la tarjeta.
-                    
-                    <x-slot name="footer">
-                        <button class="btn btn-primary">Aceptar</button>
-                        <button class="btn btn-secondary">Cancelar</button>
-                    </x-slot>
-                </x-card>
-                <br>
-                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#largeModal">
-            Abrir Modal Grande
-        </button>
-                
-                
- <x-modal modalId="largeModal" title="Modal Grande" size="lg">
-            <h4>Este es un modal de tamaño grande</h4>
-            <p>Perfecto para contenido más extenso o formularios complejos.</p>
-            
-            <div class="mb-3">
-                <label for="exampleInput" class="form-label">Ejemplo de input</label>
-                <input type="text" class="form-control" id="exampleInput">
+@section('content')
+<div class="min-vh-100 bg-dark">
+    <!-- Hero Section -->
+    <div class="hero-gradient py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ url('/') }}" class="text-white-50">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/posts') }}" class="text-white-50">Posts</a></li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">Nuevo Post</li>
+                        </ol>
+                    </nav>
+                    <h1 class="display-5 fw-bold text-white mb-3">Crear Nuevo Post</h1>
+                    <p class="lead text-white-50">Comparte tus conocimientos con la comunidad</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="{{ url('/posts') }}" class="btn btn-outline-light rounded-pill px-4">
+                        <i class="bi bi-arrow-left me-2"></i> Cancelar
+                    </a>
+                </div>
             </div>
-            
-            <div class="mb-3">
-                <label for="exampleTextarea" class="form-label">Ejemplo de textarea</label>
-                <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-            </div>
-            
-            <x-slot name="footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Enviar</button>
-            </x-slot>
-        
-        </x-modal>
-                
+        </div>
     </div>
-    <br>
-            
-      
-       
-    <!-- Bootstrap JS desde CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+
+    <!-- Content -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="glass-card p-4 p-lg-5 rounded-4">
+                    <div class="d-flex align-items-center mb-5">
+                        <div class="avatar-lg bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-4">
+                            <i class="bi bi-plus-lg"></i>
+                        </div>
+                        <h2 class="text-white mb-0">Nuevo Contenido</h2>
+                    </div>
+                    
+                    <div class="placeholder-content">
+                        <div class="placeholder-item bg-gray-800 rounded-4 mb-4" style="height: 50px"></div>
+                        <div class="placeholder-item bg-gray-800 rounded-4 mb-4" style="height: 200px"></div>
+                        <div class="placeholder-item bg-gray-800 rounded-4 mb-4" style="height: 100px"></div>
+                        
+                        <div class="text-center mt-5">
+                            <a href="#" class="btn btn-primary rounded-pill px-5 disabled" aria-disabled="true">
+                                <i class="bi bi-send me-2"></i> Publicar Post
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.placeholder-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.placeholder-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+</style>
+@endsection
